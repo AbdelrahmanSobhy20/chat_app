@@ -37,8 +37,8 @@ class _SecondChatScreenState extends State<SecondChatScreen> {
           Column(
             children: [
               Container(
-                padding: EdgeInsets.only(left: 30, right: 30, top: 50),
-                height: MediaQuery.of(context).size.height * 0.12,
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                height: MediaQuery.of(context).size.height * 0.1,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [AppColors.purpleColor, AppColors.blueColor],
@@ -46,33 +46,35 @@ class _SecondChatScreenState extends State<SecondChatScreen> {
                     end: Alignment.bottomRight,
                   ),
                 ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 15),
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage(
-                          "assets/images/person2.jpg",
+                child: Center(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 15),
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage(
+                            "assets/images/person2.jpg",
+                          ),
+                          radius: 25,
                         ),
-                        radius: 25,
                       ),
-                    ),
-                    Text(
-                      "Alex",
-                      style: TextStyle(
-                        fontFamily: "Source Sans Pro",
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white,
+                      Text(
+                        "Alex",
+                        style: TextStyle(
+                          fontFamily: "Source Sans Pro",
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                    Spacer(),
-                    SvgPicture.asset('assets/icons/phone_icon.svg'),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-                    OptionButton(),
-                  ],
+                      Spacer(),
+                      SvgPicture.asset('assets/icons/phone_icon.svg'),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+                      OptionButton(),
+                    ],
+                  ),
                 ),
               ),
               Consumer<ChatMessageProvider>(
@@ -99,8 +101,8 @@ class _SecondChatScreenState extends State<SecondChatScreen> {
               Form(
                 key: formKey,
                 child: Container(
-                  padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                  height: MediaQuery.of(context).size.height * 0.1,
+                  padding: EdgeInsets.only(right: 30,left: 30,top: 30),
+                  height: MediaQuery.of(context).size.height * 0.11,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [AppColors.purpleColor, AppColors.blueColor],
@@ -108,16 +110,18 @@ class _SecondChatScreenState extends State<SecondChatScreen> {
                       end: Alignment.bottomRight,
                     ),
                   ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CameraButton(sender: 'Maria',),
-                      CustomTextFormField(
-                        controller: controller, sender: 'Maria',
-                      ),
-                      RecordButton(sender: 'Maria',),
-                    ],
+                  child: Center(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CameraButton(sender: 'Maria',),
+                        CustomTextFormField(
+                          controller: controller, sender: 'Maria',
+                        ),
+                        RecordButton(sender: 'Maria',),
+                      ],
+                    ),
                   ),
                 ),
               ),

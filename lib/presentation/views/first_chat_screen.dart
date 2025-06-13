@@ -38,8 +38,8 @@ class _FirstChatScreenState extends State<FirstChatScreen> {
           Column(
             children: [
               Container(
-                padding: EdgeInsets.only(left: 30, right: 30, top: 50),
-                height: MediaQuery.of(context).size.height * 0.12,
+                padding: EdgeInsets.only(right: 30,left: 30,top: 30),
+                height: MediaQuery.of(context).size.height * 0.11,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [AppColors.purpleColor, AppColors.blueColor],
@@ -47,31 +47,33 @@ class _FirstChatScreenState extends State<FirstChatScreen> {
                     end: Alignment.bottomRight,
                   ),
                 ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 15),
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage("assets/images/person.png"),
-                        radius: 25,
+                child: Center(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 15),
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage("assets/images/person.png"),
+                          radius: 25,
+                        ),
                       ),
-                    ),
-                    Text(
-                      'Maria',
-                      style: TextStyle(
-                        fontFamily: "Source Sans Pro",
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white,
+                      Text(
+                        'Maria',
+                        style: TextStyle(
+                          fontFamily: "Source Sans Pro",
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                    Spacer(),
-                    SvgPicture.asset('assets/icons/phone_icon.svg'),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-                    OptionButton(),
-                  ],
+                      Spacer(),
+                      SvgPicture.asset('assets/icons/phone_icon.svg'),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+                      OptionButton(),
+                    ],
+                  ),
                 ),
               ),
               Consumer<ChatMessageProvider>(
@@ -104,7 +106,7 @@ class _FirstChatScreenState extends State<FirstChatScreen> {
               Form(
                 key: formKey,
                 child: Container(
-                  padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                  padding: EdgeInsets.symmetric(horizontal: 30),
                   height: MediaQuery.of(context).size.height * 0.1,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -113,17 +115,19 @@ class _FirstChatScreenState extends State<FirstChatScreen> {
                       end: Alignment.bottomRight,
                     ),
                   ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CameraButton(sender: 'Alex'),
-                      CustomTextFormField(
-                        controller: controller,
-                        sender: 'Alex',
-                      ),
-                      RecordButton(sender: 'Alex'),
-                    ],
+                  child: Center(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CameraButton(sender: 'Alex'),
+                        CustomTextFormField(
+                          controller: controller,
+                          sender: 'Alex',
+                        ),
+                        RecordButton(sender: 'Alex'),
+                      ],
+                    ),
                   ),
                 ),
               ),

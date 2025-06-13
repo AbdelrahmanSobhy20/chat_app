@@ -83,14 +83,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               child: CircleAvatar(
                                 backgroundImage: AssetImage(chatImage[index]),
-                                radius: 40,
+                                radius: 30,
                               ),
                             ),
                             Text(
                               chatName[index],
                               style: TextStyle(
                                 fontFamily: "Source Sans Pro",
-                                fontSize: 40,
+                                fontSize: 25,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
                               ),
