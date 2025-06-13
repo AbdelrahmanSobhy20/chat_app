@@ -18,11 +18,13 @@ class FirstChatScreen extends StatefulWidget {
 }
 
 class _FirstChatScreenState extends State<FirstChatScreen> {
+  static final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    final TextEditingController controller = TextEditingController();
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: Stack(
         children: [
           Consumer<BackgroundColorProvider>(
@@ -80,6 +82,7 @@ class _FirstChatScreenState extends State<FirstChatScreen> {
                 builder: (context, chatMessageProvider, child) {
                   return Expanded(
                     child: ListView.builder(
+                      shrinkWrap: true,
                       itemCount: chatMessageProvider.chatMessages.length,
                       itemBuilder: (context, index) {
                         return Padding(

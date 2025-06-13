@@ -18,11 +18,13 @@ class SecondChatScreen extends StatefulWidget {
 }
 
 class _SecondChatScreenState extends State<SecondChatScreen> {
+  static final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    final TextEditingController controller = TextEditingController();
     return Scaffold(
+        resizeToAvoidBottomInset: true,
       body: Stack(
         children: [
           Consumer<BackgroundColorProvider>(
@@ -37,8 +39,8 @@ class _SecondChatScreenState extends State<SecondChatScreen> {
           Column(
             children: [
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 30),
-                height: MediaQuery.of(context).size.height * 0.1,
+                padding: EdgeInsets.only(right: 30,left: 30,top: 30),
+                height: MediaQuery.of(context).size.height * 0.11,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [AppColors.purpleColor, AppColors.blueColor],
@@ -101,8 +103,8 @@ class _SecondChatScreenState extends State<SecondChatScreen> {
               Form(
                 key: formKey,
                 child: Container(
-                  padding: EdgeInsets.only(right: 30,left: 30,top: 30),
-                  height: MediaQuery.of(context).size.height * 0.11,
+                  padding: EdgeInsets.symmetric(horizontal: 30),
+                  height: MediaQuery.of(context).size.height * 0.1,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [AppColors.purpleColor, AppColors.blueColor],
