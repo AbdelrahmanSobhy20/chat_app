@@ -3,6 +3,8 @@ import 'package:chat_app/presentation/widgets/chat_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:svg_flutter/svg.dart';
+import 'package:zego_uikit/zego_uikit.dart';
+import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
 import '../../core/utils/app_colors.dart';
 import '../manager/background_color_provider.dart';
 import '../widgets/camera_button.dart';
@@ -72,7 +74,20 @@ class _SecondChatScreenState extends State<SecondChatScreen> {
                         ),
                       ),
                       Spacer(),
-                      SvgPicture.asset('assets/icons/phone_icon.svg'),
+                      // SvgPicture.asset('assets/icons/phone_icon.svg'),
+                      ZegoSendCallInvitationButton(
+                        isVideoCall: false,
+                        //You need to use the resourceID that you created in the subsequent steps.
+                        //Please continue reading this document.
+                        resourceID: "chatApp",
+                        invitees: [
+                          ZegoUIKitUser(
+                            id: "123456",
+                            name: "Alex",
+                          ),
+                        ],
+                      ),
+
                       SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                       OptionButton(),
                     ],

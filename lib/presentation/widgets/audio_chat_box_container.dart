@@ -31,7 +31,7 @@ class AudioChatBoxContainer extends StatelessWidget {
             final file = File(filePath);
             if (await file.exists()) {
               print("Attempting to play file at: $filePath");
-              await audioPlayer.play(DeviceFileSource(filePath));
+              await Constants.audioPlayer.play(DeviceFileSource(filePath));
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text('Audio file not found at: $filePath')),

@@ -20,8 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     Future.delayed(Duration(milliseconds: 100), () {
-      audioPlayer = AudioPlayer();
-      audioRecorder = AudioRecorder();
+      Constants.audioPlayer = AudioPlayer();
+      Constants.audioRecorder = AudioRecorder();
     });
     super.initState();
   }
@@ -30,8 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    audioPlayer.dispose();
-    audioRecorder.dispose();
+    Constants.audioPlayer.dispose();
+    Constants.audioRecorder.dispose();
   }
 
   @override
@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
               CustomTitleAppBar(title: 'Messenger'),
               Expanded(
                 child: ListView.builder(
-                  itemCount: chatName.length,
+                  itemCount: Constants.chatName.length,
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
@@ -82,12 +82,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 horizontal: 15,
                               ),
                               child: CircleAvatar(
-                                backgroundImage: AssetImage(chatImage[index]),
+                                backgroundImage: AssetImage(Constants.chatImage[index]),
                                 radius: 30,
                               ),
                             ),
                             Text(
-                              chatName[index],
+                              Constants.chatName[index],
                               style: TextStyle(
                                 fontFamily: "Source Sans Pro",
                                 fontSize: 25,

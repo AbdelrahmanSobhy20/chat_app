@@ -46,6 +46,10 @@ dependencies:
   record:
   audioplayers: ^6.1.0
   permission_handler:
+  zego_uikit_prebuilt_call: ^4.17.2
+  zego_uikit_signaling_plugin: ^2.8.13
+  zego_uikit: ^2.7.1
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:
