@@ -50,12 +50,7 @@ class _OptionButtonState extends State<OptionButton> {
                 MaterialPageRoute(builder: (context) => ChangeChatBoxScreen()),
               );
             } else if (selected == 'Delete Chat') {
-              setState(() {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
-                );
-                chatMessageProvider.chatMessages.clear();
-              });
+                chatMessageProvider.deleteAllMessages();
             }
           },
           child: SvgPicture.asset('assets/icons/options_icon.svg'),

@@ -50,6 +50,7 @@ dependencies:
   zego_uikit_signaling_plugin: ^2.8.13
   zego_uikit: ^2.7.1
   shared_preferences:
+  path_provider:
 
 dev_dependencies:
   flutter_test:

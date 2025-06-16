@@ -1,4 +1,5 @@
 class ChatMessage {
+  String id;
   final String text;
   final DateTime time;
   final bool isTyping;
@@ -11,6 +12,7 @@ class ChatMessage {
   String? audioPath;
 
   ChatMessage({
+    this.id="",
     required this.sender,
     required this.text,
     required this.time,

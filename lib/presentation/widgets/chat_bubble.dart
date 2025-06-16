@@ -14,6 +14,7 @@ import 'camera_chat_box_container.dart';
 class ChatBubble extends StatefulWidget {
   final ChatMessage message;
   final String sender;
+  final String messageID;
   final bool isUser;
   final int messageIndex;
 
@@ -22,7 +23,7 @@ class ChatBubble extends StatefulWidget {
     required this.message,
     required this.sender,
     required this.isUser,
-    required this.messageIndex,
+    required this.messageIndex, required this.messageID,
   });
 
   @override
@@ -110,7 +111,7 @@ class _ChatBubbleState extends State<ChatBubble> {
                                 messageIndex: widget.messageIndex,
                                 isUser: widget.isUser,
                                 chatMessageProvider: chatMessageProvider,
-                                message: widget.message.text,
+                                message: widget.message.text, messageID: widget.messageID,
                               )
                               : chatMessageProvider
                                   .chatMessages[widget.messageIndex]
@@ -118,14 +119,15 @@ class _ChatBubbleState extends State<ChatBubble> {
                               ? Container(
                                 padding: EdgeInsets.all(12),
                                 margin: EdgeInsets.symmetric(
-                                  vertical: 0,
-                                  horizontal: 12,
+                                  vertical: widget.isUser ? 0 : 6,
+                                  horizontal: widget.isUser ? 12 : 0,
                                 ),
                                 constraints: BoxConstraints(maxWidth: 260),
                                 decoration: BoxDecoration(
                                   color: AppColors.darkGreyColor,
                                   borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10),
+                                    topLeft: Radius.circular(widget.isUser ? 10:0),
+                                    topRight: Radius.circular(widget.isUser ? 0:10),
                                     bottomLeft: Radius.circular(10),
                                     bottomRight: Radius.circular(10),
                                   ),
@@ -138,7 +140,7 @@ class _ChatBubbleState extends State<ChatBubble> {
                                     ),
                                     SizedBox(width: 8),
                                     Text(
-                                      "You deleted this message",
+                                      widget.isUser ? "You deleted this message":"This message was deleted",
                                       style: TextStyle(
                                         color:
                                             widget.isUser

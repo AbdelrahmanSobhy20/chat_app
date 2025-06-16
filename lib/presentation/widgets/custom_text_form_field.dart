@@ -27,21 +27,40 @@ class CustomTextFormField extends StatelessWidget {
             builder: (context, chatMessageProvider, child) {
               return TextField(
                 controller: controller,
-                onEditingComplete: () {
-                  chatMessageProvider.addMessage(
-                    ChatMessage(
-                      text: controller.text,
-                      time: DateTime.now(),
-                      sender: sender,
-                    ),
+                onSubmitted: (value) {
+                  if (value.trim().isEmpty) return;
+
+                  final chatProvider =
+                  Provider.of<ChatMessageProvider>(context, listen: false);
+
+                  final newMessage = ChatMessage(
+                    text: value,
+                    time: DateTime.now(),
+                    isImage: false,
+                    isAudio: false,
+                    sender: sender,
                   );
-                  chatMessageProvider.firestore.collection('messages').add({
-                    'text': controller.text,
-                    'time': DateTime.now(),
-                    'sender': sender,
-                  });
+
+                  chatProvider.addMessage(newMessage);
+
                   controller.clear();
                 },
+
+                // onEditingComplete: () {
+                //   chatMessageProvider.addMessage(
+                //     ChatMessage(
+                //       text: controller.text,
+                //       time: DateTime.now(),
+                //       sender: sender,
+                //     ),
+                //   );
+                //   chatMessageProvider.firestore.collection('messages').add({
+                //     'text': controller.text,
+                //     'time': DateTime.now(),
+                //     'sender': sender,
+                //   });
+                //   controller.clear();
+                // },
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: "write something...",

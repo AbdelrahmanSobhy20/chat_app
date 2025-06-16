@@ -18,39 +18,15 @@ import 'package:flutter/foundation.dart'
 
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
-    if (kIsWeb) {
-      return web;
-    }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
-      case TargetPlatform.iOS:
-        return ios;
-      case TargetPlatform.macOS:
-        return macos;
-      case TargetPlatform.windows:
-        return windows;
-      case TargetPlatform.linux:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for linux - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
       default:
         throw UnsupportedError(
           'DefaultFirebaseOptions are not supported for this platform.',
         );
     }
   }
-
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCd8_p60pApeRVxoypqoLl9g22N-l-viL4',
-    appId: '1:88081641770:web:a1fdf9f519c506c8d3ee53',
-    messagingSenderId: '88081641770',
-    projectId: 'chatapp-c07c8',
-    authDomain: 'chatapp-c07c8.firebaseapp.com',
-    storageBucket: 'chatapp-c07c8.firebasestorage.app',
-    measurementId: 'G-85J5EPJ9DR',
-  );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCaYqYSLFhP1FK1ASo3JhuLkms5iyb3DSU',
@@ -60,31 +36,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'chatapp-c07c8.firebasestorage.app',
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBz7NO9vU2GHM3Pg-U0JbTT9wWcjfHYW2k',
-    appId: '1:88081641770:ios:e5d2b1ef90f65e2cd3ee53',
-    messagingSenderId: '88081641770',
-    projectId: 'chatapp-c07c8',
-    storageBucket: 'chatapp-c07c8.firebasestorage.app',
-    iosBundleId: 'com.example.chatApp',
-  );
 
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBz7NO9vU2GHM3Pg-U0JbTT9wWcjfHYW2k',
-    appId: '1:88081641770:ios:e5d2b1ef90f65e2cd3ee53',
-    messagingSenderId: '88081641770',
-    projectId: 'chatapp-c07c8',
-    storageBucket: 'chatapp-c07c8.firebasestorage.app',
-    iosBundleId: 'com.example.chatApp',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCd8_p60pApeRVxoypqoLl9g22N-l-viL4',
-    appId: '1:88081641770:web:c5b49863ccccf6bdd3ee53',
-    messagingSenderId: '88081641770',
-    projectId: 'chatapp-c07c8',
-    authDomain: 'chatapp-c07c8.firebaseapp.com',
-    storageBucket: 'chatapp-c07c8.firebasestorage.app',
-    measurementId: 'G-EK03T1XBLY',
-  );
 }

@@ -6,11 +6,12 @@ import '../manager/chat_box_color_provider.dart';
 import '../manager/chat_message_provider.dart';
 
 class TextChatBoxContainer extends StatelessWidget {
-  const TextChatBoxContainer({super.key, required this.chatMessageProvider, required this.messageIndex, required this.isUser, required this.message});
+  const TextChatBoxContainer({super.key, required this.chatMessageProvider, required this.messageIndex, required this.isUser, required this.message, required this.messageID});
   final ChatMessageProvider chatMessageProvider;
   final String message;
   final int messageIndex;
   final bool isUser;
+  final String messageID;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -73,6 +74,7 @@ class TextChatBoxContainer extends StatelessWidget {
             chatMessageProvider.changeDeletedState(
               messageIndex,
             );
+            chatMessageProvider.deleteMessageFromFirebase(messageID);
           },
           child: Container(
             padding: EdgeInsets.all(10),
